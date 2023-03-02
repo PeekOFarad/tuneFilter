@@ -51,7 +51,6 @@ signal coeff_mem : t_coeff_mem := (
     others => (others => '0')
 ); --coefficient memory in order: s1, b1, b2, b3, a2, a3
 signal coeff_mem_address : unsigned(c_len_coeff_address-1 downto 0);
-signal cnt_section : unsigned(c_len_cnt_order-1 downto 0) := (others => '0');
 signal cnt_mul_mux : unsigned;
 signal mul, mul_c, mul_s : signed(c_mul_w-1 downto 0); --2*c_data_w product
 signal acc_c, acc_s : signed(c_acc_w-1 downto 0); --2*c_data_w+2 accumulator size
