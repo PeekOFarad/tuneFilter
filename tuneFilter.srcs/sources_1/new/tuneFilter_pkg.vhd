@@ -14,13 +14,14 @@ constant c_len_coeff_frac : integer := 14; --coefficient fractional part length
 constant c_acc_w : integer := c_data_w*2+2; --accummulator width, default = 34
 constant c_mul_w : integer := c_data_w*2; --multiplier width, default = 32
 constant c_len_acc_frac : integer := 26; --accummulator fractional part length
-constant c_len_cnt_order : integer := integer(ceil(log2(real(c_F_Order))));
-constant c_len_coeff_address : integer := integer(ceil(log2(real(c_S_Order*3*c_F_Order))));
-
+constant c_len_cnt_coeff : integer := integer(ceil(log2(real(c_S_Order*3)))); --number of coefficients for a section, for SOS -> 2*3 = 6 (a1 omitted = 1)
+constant c_len_cnt_sample : integer := integer(ceil(log2(real(c_F_Order+1)))); --number of delay elements on a section + input data
+constant c_len_sample_mem : integer := c_F_Order*(c_S_Order+1); --sample memory size
+constant c_len_coeff_mem : integer := c_F_Order*(3*c_S_Order); --coefficient memory size
 
 --types
-type t_mem_arr is array (0 to c_F_Order*c_S_Order-1) of signed (c_data_w-1 downto 0); --sram
-type t_coeff_mem is array (0 to c_F_Order*(2*c_S_Order+1)) of signed (c_data_w-1 downto 0); --coefficient memory
+type t_sample_mem is array (0 to c_len_sample_mem-1) of signed (c_data_w-1 downto 0); --sram
+type t_coeff_mem is array (0 to c_len_coeff_mem-1) of signed (c_data_w-1 downto 0); --coefficient memory
 
 --functions
 function signed_fixPoint_resize (
