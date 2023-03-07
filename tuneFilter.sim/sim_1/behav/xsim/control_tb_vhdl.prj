@@ -1,0 +1,8 @@
+# compile vhdl design source files
+vhdl xil_defaultlib  \
+"../../../../tuneFilter.srcs/sources_1/new/tuneFilter_pkg.vhd" \
+"../../../../tuneFilter.srcs/sources_1/new/cntrl.vhd" \
+"../../../../tuneFilter.srcs/sim_1/new/control_tb.vhd" \
+
+# Do not sort compile order
+nosort
