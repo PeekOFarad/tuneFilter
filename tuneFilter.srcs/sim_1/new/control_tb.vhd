@@ -59,9 +59,10 @@ begin
     if (output = std_logic_vector(to_signed(35,c_data_w))) then
       report "Test Successful!";
     else
-      report "Test Failed!" severity failure;
+      report "Test Failed!" severity error;
     end if;
-
+    wait for clock_period*2;
+    wait on RDY; 
     ------------- 
     stop_the_clock <= true;
     wait;

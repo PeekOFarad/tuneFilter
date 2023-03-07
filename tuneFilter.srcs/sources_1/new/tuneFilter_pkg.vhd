@@ -7,17 +7,18 @@ use IEEE.math_real.all;
 package tuneFilter_pkg is
 --constants
 constant c_data_w : integer := 16; --data width
-constant c_F_Order : integer := 8; --filter order
-constant c_S_Order : integer := 2; --section order
+constant c_f_order : integer := 8; --filter order
+constant c_s_order : integer := 2; --section order
 constant c_len_data_frac : integer := 15; --coefficient fractional part length
 constant c_len_coeff_frac : integer := 14; --coefficient fractional part length
 constant c_acc_w : integer := c_data_w*2+2; --accummulator width, default = 34
 constant c_mul_w : integer := c_data_w*2; --multiplier width, default = 32
 constant c_len_acc_frac : integer := 26; --accummulator fractional part length
-constant c_len_cnt_coeff : integer := integer(ceil(log2(real(c_S_Order*3)))); --number of coefficients for a section, for SOS -> 2*3 = 6 (a1 omitted = 1)
-constant c_len_cnt_sample : integer := integer(ceil(log2(real(c_F_Order+1)))); --number of delay elements on a section + input data
-constant c_len_sample_mem : integer := c_F_Order*(c_S_Order+1); --sample memory size
-constant c_len_coeff_mem : integer := c_F_Order*(3*c_S_Order); --coefficient memory size
+constant c_len_cnt_coeff : integer := integer(ceil(log2(real(2*c_s_order+1)))); --number of coefficients for a section, for SOS -> 2*3 = 6 (a1 omitted = 1)
+constant c_len_cnt_sample : integer := integer(ceil(log2(real(c_S_Order+1))));
+constant c_len_cnt_section : integer := integer(ceil(log2(real(c_f_order/c_s_order))));
+constant c_len_sample_mem : integer := c_F_Order/c_s_order*(c_S_Order+1); --sample memory size
+constant c_len_coeff_mem : integer := c_F_Order/c_s_order*(2*c_S_Order+1); --coefficient memory size
 
 --types
 type t_sample_mem is array (0 to c_len_sample_mem-1) of signed (c_data_w-1 downto 0); --sram

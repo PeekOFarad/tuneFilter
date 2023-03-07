@@ -2,8 +2,8 @@ Time resolution is 1 ps
 Note: test start
 Time: 10 ns  Iteration: 0  Process: /control_tb/stimulus  File: C:/Users/idont/Documents/School/Vysoka/GitHub/tuneFilter/tuneFilter.srcs/sim_1/new/control_tb.vhd
 Note: data writen
-Time: 15 ns  Iteration: 1  Process: /control_tb/stimulus  File: C:/Users/idont/Documents/School/Vysoka/GitHub/tuneFilter/tuneFilter.srcs/sim_1/new/control_tb.vhd
+Time: 35 ns  Iteration: 1  Process: /control_tb/stimulus  File: C:/Users/idont/Documents/School/Vysoka/GitHub/tuneFilter/tuneFilter.srcs/sim_1/new/control_tb.vhd
 Note: data out
-Time: 55 ns  Iteration: 1  Process: /control_tb/stimulus  File: C:/Users/idont/Documents/School/Vysoka/GitHub/tuneFilter/tuneFilter.srcs/sim_1/new/control_tb.vhd
+Time: 65 ns  Iteration: 1  Process: /control_tb/stimulus  File: C:/Users/idont/Documents/School/Vysoka/GitHub/tuneFilter/tuneFilter.srcs/sim_1/new/control_tb.vhd
 Note: Test Successful!
-Time: 55 ns  Iteration: 1  Process: /control_tb/stimulus  File: C:/Users/idont/Documents/School/Vysoka/GitHub/tuneFilter/tuneFilter.srcs/sim_1/new/control_tb.vhd
+Time: 65 ns  Iteration: 1  Process: /control_tb/stimulus  File: C:/Users/idont/Documents/School/Vysoka/GitHub/tuneFilter/tuneFilter.srcs/sim_1/new/control_tb.vhd

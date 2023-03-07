@@ -1,2 +1,7 @@
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/idont/Documents/School/Vysoka/GitHub/tuneFilter/tuneFilter.srcs/sim_1/new/control_tb.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'control_tb'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/idont/Documents/School/Vysoka/GitHub/tuneFilter/tuneFilter.srcs/sources_1/new/cntrl.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'control'
+WARNING: [VRFC 10-471] case choice must be a locally static expression [C:/Users/idont/Documents/School/Vysoka/GitHub/tuneFilter/tuneFilter.srcs/sources_1/new/cntrl.vhd:108]
+WARNING: [VRFC 10-471] case choice must be a locally static expression [C:/Users/idont/Documents/School/Vysoka/GitHub/tuneFilter/tuneFilter.srcs/sources_1/new/cntrl.vhd:109]
+WARNING: [VRFC 10-471] case choice must be a locally static expression [C:/Users/idont/Documents/School/Vysoka/GitHub/tuneFilter/tuneFilter.srcs/sources_1/new/cntrl.vhd:110]
+WARNING: [VRFC 10-471] case choice must be a locally static expression [C:/Users/idont/Documents/School/Vysoka/GitHub/tuneFilter/tuneFilter.srcs/sources_1/new/cntrl.vhd:111]
+WARNING: [VRFC 10-471] case choice must be a locally static expression [C:/Users/idont/Documents/School/Vysoka/GitHub/tuneFilter/tuneFilter.srcs/sources_1/new/cntrl.vhd:112]
