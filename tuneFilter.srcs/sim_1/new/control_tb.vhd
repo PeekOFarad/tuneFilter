@@ -46,23 +46,22 @@ begin
 
     -- Put test bench stimulus code here
     report "test start";
-    input <= std_logic_vector(to_signed(35,c_data_w));
+    input <= std_logic_vector(to_signed(35, c_data_w));
     RQ <= '1';
     wait on GNT;
-    report "data writen";
+    report "calculation start";
     RQ <= '0';
-    wait on RDY;
-    report "data out";
-    assert (output = std_logic_vector(to_signed(35,c_data_w)))
-      report ("wrong output, expected: " & integer'image(35) & "; Value read: " & integer'image(to_integer(signed(output))))
+    wait on GNT;
+    wait on GNT until GNT = '0';
+    report "calculation end";
+    assert (output = std_logic_vector(to_signed(3,c_data_w)))
+      report ("wrong output, expected: " & integer'image(3) & "; Value read: " & integer'image(to_integer(signed(output))))
       severity error;
-    if (output = std_logic_vector(to_signed(35,c_data_w))) then
+    if (output = std_logic_vector(to_signed(3,c_data_w))) then
       report "Test Successful!";
     else
       report "Test Failed!" severity error;
     end if;
-    wait for clock_period*2;
-    wait on RDY; 
     ------------- 
     stop_the_clock <= true;
     wait;
