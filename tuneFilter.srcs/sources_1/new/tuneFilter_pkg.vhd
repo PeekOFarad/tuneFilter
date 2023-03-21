@@ -10,10 +10,11 @@ constant c_data_w : integer := 16; --data width
 constant c_f_order : integer := 8; --filter order
 constant c_s_order : integer := 2; --section order
 constant c_len_data_frac : integer := 15; --coefficient fractional part length
-constant c_len_coeff_frac : integer := 14; --coefficient fractional part length
+constant c_len_coeff_frac : integer := 13; --coefficient fractional part length
+constant c_len_acc_frac : integer := 28; --accummulator fractional part length
+constant c_len_mul_frac : integer := 26; --accummulator fractional part length
 constant c_acc_w : integer := c_data_w*2+2; --accummulator width, default = 34
 constant c_mul_w : integer := c_data_w*2; --multiplier width, default = 32
-constant c_len_acc_frac : integer := 26; --accummulator fractional part length
 constant c_len_cnt_coeff : integer := integer(ceil(log2(real(2*c_s_order+1)))); --number of coefficients for a section, for SOS -> 2*3 = 6 (a1 omitted = 1)
 constant c_len_cnt_sample : integer := integer(ceil(log2(real(c_S_Order+1))));
 constant c_len_cnt_section : integer := integer(ceil(log2(real(c_f_order/c_s_order))));
@@ -66,5 +67,6 @@ package body tuneFilter_pkg is
             end if;
         end if;
     end;
+
 
 end package body tuneFilter_pkg;

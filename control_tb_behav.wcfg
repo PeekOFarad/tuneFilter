@@ -11,15 +11,15 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="0.000 ns"></ZoomStartTime>
-      <ZoomEndTime time="1,000.000 ns"></ZoomEndTime>
-      <Cursor1Time time="395.000 ns"></Cursor1Time>
+      <ZoomStartTime time="129.833 ns"></ZoomStartTime>
+      <ZoomEndTime time="328.034 ns"></ZoomEndTime>
+      <Cursor1Time time="295.000 ns"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="204"></NameColumnWidth>
-      <ValueColumnWidth column_width="98"></ValueColumnWidth>
+      <NameColumnWidth column_width="170"></NameColumnWidth>
+      <ValueColumnWidth column_width="97"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="50" />
+   <WVObjectSize size="60" />
    <wvobject fp_name="/control_tb/clk" type="logic">
       <obj_property name="ElementShortName">clk</obj_property>
       <obj_property name="ObjectShortName">clk</obj_property>
@@ -122,12 +122,19 @@
       <obj_property name="ObjectShortName">output[15:0]</obj_property>
       <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
    </wvobject>
+   <wvobject type="divider" fp_name="divider55">
+      <obj_property name="label">Memory</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+   </wvobject>
    <wvobject fp_name="/control_tb/uut/sample_mem" type="array">
       <obj_property name="ElementShortName">sample_mem[0:11][15:0]</obj_property>
       <obj_property name="ObjectShortName">sample_mem[0:11][15:0]</obj_property>
       <obj_property name="CustomSignalColor">#800080</obj_property>
       <obj_property name="UseCustomSignalColor">true</obj_property>
-      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      <obj_property name="Radix">REALRADIX</obj_property>
+      <obj_property name="radix_realType">SIGNEDFIXEDPOINTRADIX</obj_property>
+      <obj_property name="radix_fractionWidth">13</obj_property>
+      <obj_property name="radix_otherWidth">0</obj_property>
    </wvobject>
    <wvobject fp_name="/control_tb/uut/wdata_sample" type="array">
       <obj_property name="ElementShortName">wdata_sample[15:0]</obj_property>
@@ -143,21 +150,13 @@
       <obj_property name="CustomSignalColor">#FF0080</obj_property>
       <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
-   <wvobject fp_name="/control_tb/uut/rdata_sample" type="array">
-      <obj_property name="ElementShortName">rdata_sample[15:0]</obj_property>
-      <obj_property name="ObjectShortName">rdata_sample[15:0]</obj_property>
-      <obj_property name="CustomSignalColor">#FF00FF</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
-   </wvobject>
    <wvobject fp_name="/control_tb/uut/rdata_sample_s" type="array">
       <obj_property name="ElementShortName">rdata_sample_s[15:0]</obj_property>
       <obj_property name="ObjectShortName">rdata_sample_s[15:0]</obj_property>
-      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
-   </wvobject>
-   <wvobject fp_name="/control_tb/uut/re_sample_mem" type="logic">
-      <obj_property name="ElementShortName">re_sample_mem</obj_property>
-      <obj_property name="ObjectShortName">re_sample_mem</obj_property>
+      <obj_property name="Radix">REALRADIX</obj_property>
+      <obj_property name="radix_realType">UNSIGNEDFIXEDPOINTRADIX</obj_property>
+      <obj_property name="radix_fractionWidth">13</obj_property>
+      <obj_property name="radix_otherWidth">0</obj_property>
    </wvobject>
    <wvobject fp_name="/control_tb/uut/raddr_sample" type="array">
       <obj_property name="ElementShortName">raddr_sample[11:0]</obj_property>
@@ -172,6 +171,9 @@
       <obj_property name="CustomSignalColor">#0000A0</obj_property>
       <obj_property name="UseCustomSignalColor">true</obj_property>
       <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      <obj_property name="radix_realType">SIGNEDFIXEDPOINTRADIX</obj_property>
+      <obj_property name="radix_fractionWidth">13</obj_property>
+      <obj_property name="radix_otherWidth">0</obj_property>
    </wvobject>
    <wvobject fp_name="/control_tb/uut/wdata_coeff" type="array">
       <obj_property name="ElementShortName">wdata_coeff[15:0]</obj_property>
@@ -179,6 +181,9 @@
       <obj_property name="CustomSignalColor">#0000FF</obj_property>
       <obj_property name="UseCustomSignalColor">true</obj_property>
       <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      <obj_property name="radix_realType">SIGNEDFIXEDPOINTRADIX</obj_property>
+      <obj_property name="radix_fractionWidth">13</obj_property>
+      <obj_property name="radix_otherWidth">0</obj_property>
    </wvobject>
    <wvobject fp_name="/control_tb/uut/waddr_coeff" type="array">
       <obj_property name="ElementShortName">waddr_coeff[19:0]</obj_property>
@@ -192,7 +197,10 @@
       <obj_property name="ObjectShortName">rdata_coeff[15:0]</obj_property>
       <obj_property name="CustomSignalColor">#008080</obj_property>
       <obj_property name="UseCustomSignalColor">true</obj_property>
-      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      <obj_property name="Radix">REALRADIX</obj_property>
+      <obj_property name="radix_realType">SIGNEDFIXEDPOINTRADIX</obj_property>
+      <obj_property name="radix_fractionWidth">13</obj_property>
+      <obj_property name="radix_otherWidth">0</obj_property>
    </wvobject>
    <wvobject fp_name="/control_tb/uut/raddr_coeff" type="array">
       <obj_property name="ElementShortName">raddr_coeff[19:0]</obj_property>
@@ -209,24 +217,29 @@
       <obj_property name="ElementShortName">we_coeff_mem</obj_property>
       <obj_property name="ObjectShortName">we_coeff_mem</obj_property>
    </wvobject>
-   <wvobject fp_name="/control_tb/uut/re_delay" type="logic">
-      <obj_property name="ElementShortName">re_delay</obj_property>
-      <obj_property name="ObjectShortName">re_delay</obj_property>
+   <wvobject fp_name="/control_tb/uut/new_delay_c" type="array">
+      <obj_property name="ElementShortName">new_delay_c[15:0]</obj_property>
+      <obj_property name="ObjectShortName">new_delay_c[15:0]</obj_property>
+      <obj_property name="Radix">BINARYRADIX</obj_property>
+      <obj_property name="radix_realType">SIGNEDFIXEDPOINTRADIX</obj_property>
+      <obj_property name="radix_fractionWidth">13</obj_property>
+      <obj_property name="radix_otherWidth">0</obj_property>
    </wvobject>
-   <wvobject fp_name="/control_tb/uut/delay" type="array">
-      <obj_property name="ElementShortName">delay[15:0]</obj_property>
-      <obj_property name="ObjectShortName">delay[15:0]</obj_property>
-      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
-   </wvobject>
-   <wvobject fp_name="/control_tb/uut/new_delay" type="array">
-      <obj_property name="ElementShortName">new_delay[15:0]</obj_property>
-      <obj_property name="ObjectShortName">new_delay[15:0]</obj_property>
-      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   <wvobject fp_name="/control_tb/uut/new_delay_s" type="array">
+      <obj_property name="ElementShortName">new_delay_s[15:0]</obj_property>
+      <obj_property name="ObjectShortName">new_delay_s[15:0]</obj_property>
+      <obj_property name="Radix">REALRADIX</obj_property>
+      <obj_property name="radix_realType">SIGNEDFIXEDPOINTRADIX</obj_property>
+      <obj_property name="radix_fractionWidth">13</obj_property>
+      <obj_property name="radix_otherWidth">0</obj_property>
    </wvobject>
    <wvobject fp_name="/control_tb/uut/result" type="array">
       <obj_property name="ElementShortName">result[15:0]</obj_property>
       <obj_property name="ObjectShortName">result[15:0]</obj_property>
-      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      <obj_property name="Radix">REALRADIX</obj_property>
+      <obj_property name="radix_realType">SIGNEDFIXEDPOINTRADIX</obj_property>
+      <obj_property name="radix_fractionWidth">13</obj_property>
+      <obj_property name="radix_otherWidth">0</obj_property>
    </wvobject>
    <wvobject fp_name="/control_tb/uut/en_cnt_coeff" type="logic">
       <obj_property name="ElementShortName">en_cnt_coeff</obj_property>
@@ -255,5 +268,81 @@
    <wvobject fp_name="/control_tb/uut/cnt_section_s" type="array">
       <obj_property name="ElementShortName">cnt_section_s[2:0]</obj_property>
       <obj_property name="ObjectShortName">cnt_section_s[2:0]</obj_property>
+   </wvobject>
+   <wvobject type="divider" fp_name="divider54">
+      <obj_property name="label">Arithmetics</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+   </wvobject>
+   <wvobject fp_name="/control_tb/uut/mul_pipe_c" type="array">
+      <obj_property name="ElementShortName">mul_pipe_c[31:0]</obj_property>
+      <obj_property name="ObjectShortName">mul_pipe_c[31:0]</obj_property>
+      <obj_property name="Radix">REALRADIX</obj_property>
+      <obj_property name="radix_realType">SIGNEDFIXEDPOINTRADIX</obj_property>
+      <obj_property name="radix_fractionWidth">26</obj_property>
+      <obj_property name="radix_otherWidth">0</obj_property>
+   </wvobject>
+   <wvobject fp_name="/control_tb/uut/mul_pipe_s" type="array">
+      <obj_property name="ElementShortName">mul_pipe_s[31:0]</obj_property>
+      <obj_property name="ObjectShortName">mul_pipe_s[31:0]</obj_property>
+      <obj_property name="Radix">REALRADIX</obj_property>
+      <obj_property name="radix_realType">SIGNEDFIXEDPOINTRADIX</obj_property>
+      <obj_property name="radix_fractionWidth">26</obj_property>
+      <obj_property name="radix_otherWidth">0</obj_property>
+   </wvobject>
+   <wvobject fp_name="/control_tb/uut/en_acc" type="logic">
+      <obj_property name="ElementShortName">en_acc</obj_property>
+      <obj_property name="ObjectShortName">en_acc</obj_property>
+   </wvobject>
+   <wvobject fp_name="/control_tb/uut/en_acc0" type="logic">
+      <obj_property name="ElementShortName">en_acc0</obj_property>
+      <obj_property name="ObjectShortName">en_acc0</obj_property>
+   </wvobject>
+   <wvobject fp_name="/control_tb/uut/en_acc1" type="logic">
+      <obj_property name="ElementShortName">en_acc1</obj_property>
+      <obj_property name="ObjectShortName">en_acc1</obj_property>
+   </wvobject>
+   <wvobject fp_name="/control_tb/uut/en_result" type="logic">
+      <obj_property name="ElementShortName">en_result</obj_property>
+      <obj_property name="ObjectShortName">en_result</obj_property>
+   </wvobject>
+   <wvobject fp_name="/control_tb/uut/acc_s" type="array">
+      <obj_property name="ElementShortName">acc_s[33:0]</obj_property>
+      <obj_property name="ObjectShortName">acc_s[33:0]</obj_property>
+      <obj_property name="Radix">REALRADIX</obj_property>
+      <obj_property name="radix_realType">SIGNEDFIXEDPOINTRADIX</obj_property>
+      <obj_property name="radix_fractionWidth">26</obj_property>
+      <obj_property name="radix_otherWidth">0</obj_property>
+   </wvobject>
+   <wvobject fp_name="/control_tb/uut/acc" type="array">
+      <obj_property name="ElementShortName">acc[34:0]</obj_property>
+      <obj_property name="ObjectShortName">acc[34:0]</obj_property>
+      <obj_property name="Radix">BINARYRADIX</obj_property>
+      <obj_property name="radix_realType">SIGNEDFIXEDPOINTRADIX</obj_property>
+      <obj_property name="radix_fractionWidth">26</obj_property>
+      <obj_property name="radix_otherWidth">0</obj_property>
+   </wvobject>
+   <wvobject fp_name="/control_tb/uut/acc_c" type="array">
+      <obj_property name="ElementShortName">acc_c[33:0]</obj_property>
+      <obj_property name="ObjectShortName">acc_c[33:0]</obj_property>
+      <obj_property name="Radix">REALRADIX</obj_property>
+      <obj_property name="radix_realType">SIGNEDFIXEDPOINTRADIX</obj_property>
+      <obj_property name="radix_fractionWidth">26</obj_property>
+      <obj_property name="radix_otherWidth">0</obj_property>
+   </wvobject>
+   <wvobject fp_name="/control_tb/uut/rdata_coeff_s" type="array">
+      <obj_property name="ElementShortName">rdata_coeff_s[15:0]</obj_property>
+      <obj_property name="ObjectShortName">rdata_coeff_s[15:0]</obj_property>
+      <obj_property name="Radix">REALRADIX</obj_property>
+      <obj_property name="radix_realType">UNSIGNEDFIXEDPOINTRADIX</obj_property>
+      <obj_property name="radix_fractionWidth">13</obj_property>
+      <obj_property name="radix_otherWidth">0</obj_property>
+   </wvobject>
+   <wvobject fp_name="/control_tb/uut/rdata_sample_s" type="array">
+      <obj_property name="ElementShortName">rdata_sample_s[15:0]</obj_property>
+      <obj_property name="ObjectShortName">rdata_sample_s[15:0]</obj_property>
+      <obj_property name="Radix">REALRADIX</obj_property>
+      <obj_property name="radix_realType">UNSIGNEDFIXEDPOINTRADIX</obj_property>
+      <obj_property name="radix_fractionWidth">13</obj_property>
+      <obj_property name="radix_otherWidth">0</obj_property>
    </wvobject>
 </wave_config>
