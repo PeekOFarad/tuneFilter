@@ -32,32 +32,38 @@ use IEEE.NUMERIC_STD.ALL;
 entity control is
     Port (  clk, rst, RQ    : in STD_LOGIC;
             input           : in std_logic_vector(c_data_w-1 downto 0);
-            GNT, RDY, en    : out STD_LOGIC;
+            GNT, RDY    : out STD_LOGIC;
             output          : out std_logic_vector(c_data_w-1 downto 0));
 end control;
 
 architecture Behavioral of control is
 --types----------------------------------------------------------------------------
-type t_state is (idle, write, read, run, write_delay, write_new_delay, write_result, read_delay);
+type t_state is (idle, new_data, write, run, write_delay, write_new_delay, write_result, read_delay);
 --signals--------------------------------------------------------------------------
+--SRAM
 signal sample_mem : t_sample_mem := (others => (others => '0'));
 signal coeff_mem : t_coeff_mem := (others => (others => '0')); 
-signal wdata_sample, wdata_coeff, rdata_sample, rdata_sample_s, rdata_coeff, rdata_coeff_s : signed(c_data_w-1 downto 0) := (others => '0'); --read and write signals
+signal wdata_sample, wdata_coeff, rdata_sample_s, rdata_coeff_s : signed(c_data_w-1 downto 0) := (others => '0'); --read and write signals
 signal waddr_sample, raddr_sample : unsigned(c_len_sample_mem-1 downto 0) := (others => '0');
 signal waddr_coeff, raddr_coeff : unsigned(c_len_coeff_mem-1 downto 0) := (others => '0');
-signal we_sample_mem, we_coeff_mem, re_delay : std_logic := '0';
-signal delay : signed(c_data_w-1 downto 0) := (x"0001");
-signal new_delay_c, new_delay_s : signed(c_data_w-1 downto 0) := (x"0002");
-signal result : signed(c_data_w-1 downto 0) := (x"0003");
-signal state, next_state : t_state := idle; 
-signal RQ_c, RQ_s, GNT_c, RDY_c, en_cnt_coeff, en_cnt_section, en_acc, en_acc0, en_acc1, en_result : std_logic := '0';
+signal we_sample_mem, we_coeff_mem : std_logic := '0';
+--internal memory
+signal new_delay_c, new_delay_s : signed(c_data_w-1 downto 0) := (others => '0');
+signal result : signed(c_data_w-1 downto 0) := (others => '0');
+--FSM
+signal state, next_state : t_state := idle;
+--enable and control signals
+signal RQ_c, RQ_s, GNT_c, RDY_c, en_cnt_coeff, en_cnt_section, en_acc : std_logic := '0';
+--counters
 signal cnt_coeff_c, cnt_coeff_s :  unsigned(c_len_cnt_coeff-1 downto 0) := (others => '0');
 signal cnt_sample :  unsigned(c_len_cnt_sample-1 downto 0) := (others => '0');
 signal cnt_section_c, cnt_section_s : unsigned(c_len_cnt_section downto 0) := (others => '0');
-signal mul, mul_pipe_c, mul_pipe_s : signed(c_mul_w-1 downto 0) := (others => '0');
-signal acc_c, acc_s : signed(c_acc_w-1 downto 0) := (others => '0');
-signal acc : signed(c_acc_w downto 0) := (others => '0');
-signal delay_cast : signed(c_data_w+(c_acc_w-c_mul_w)-1 downto 0) := (others => '0');
+--arithmetics
+signal mul_pipe_c, mul_pipe_s : signed(c_mul_w-1 downto 0) := (others => '0');
+signal acc_c, acc_s, mul_neg : signed(c_acc_w-1 downto 0) := (others => '0');
+signal acc, mul : signed(c_acc_w downto 0) := (others => '0');
+--border signaly
+signal mul_test16 : signed(c_data_w-1 downto 0) := (others => '0');
 -----------------------------------------------------------------------------------
 begin
     p_reg: process (clk, rst)
@@ -73,16 +79,26 @@ begin
                 RQ_s <= '0';
                 cnt_coeff_s <= (others => '0');
                 cnt_section_s <= (others => '0');
-                en_acc0 <= '0';
-                en_acc1 <= '0';
+                en_acc <= '0';
             elsif rising_edge(clk) then
+                --FSM
                 state <= next_state;
                 --output registers
                 if RDY_c = '1' then --temporary output
                     output <= std_logic_vector(result);
                 end if;
-                GNT <= GNT_c;
-                RDY <= RDY_c;
+
+                if GNT_c = '1' then
+                    GNT <= '1';
+                elsif RQ_s = '0' then
+                    GNT <= '0';
+                end if;
+
+                if RDY_c = '1' then
+                    RDY <= '1';
+                elsif RQ_s = '1' then
+                    RDY <= '0';
+                end if;
                 --data sync ddff
                 RQ_c <= RQ;
                 RQ_s <= RQ_c;
@@ -91,27 +107,28 @@ begin
                 cnt_section_s <= cnt_section_c;
                 --arithmetic regiters
                 mul_pipe_s <= mul_pipe_c;
-                if en_acc0 = '1' then
+
+                if en_acc = '1' then
                     acc_s <= acc_c;
                     mul_pipe_s <= mul_pipe_c;
                 else
                     acc_s <= (others => '0');
                     mul_pipe_s <= (others => '0');
                 end if;
-                --work registers
+                --internal memory registers
                 if cnt_coeff_s = 4 then
                     new_delay_s <= new_delay_c; --feddback result
                 end if;
+
                 if cnt_coeff_s = 6 then
                     result <= new_delay_c; --section result
                 end if;
                 --enable signals
-                en_acc0 <= en_cnt_coeff;
-                en_acc1 <= en_acc0;
+                en_acc <= en_cnt_coeff;
             end if;
         end process;
 
-    p_counters: process (en_cnt_coeff, cnt_coeff_s)
+    p_counters: process (en_cnt_coeff, cnt_coeff_s, state)
         begin
             cnt_coeff_c <= (others => '0');
             cnt_section_c <= (others => '0');
@@ -127,8 +144,9 @@ begin
                 else
                     cnt_section_c <= cnt_section_s;
                 end if;
+            else
+                cnt_section_c <= (others => '0');
             end if;
-
             --sample memory mux
             case (cnt_coeff_s) is
                 when to_unsigned(0,c_len_cnt_coeff) => cnt_sample <= to_unsigned(0,c_len_cnt_sample);
@@ -139,18 +157,14 @@ begin
                 when others => null; 
             end case;
         end process;
-
     p_fsm: process (state, RQ_s, input, cnt_sample, cnt_coeff_s, cnt_section_s, waddr_sample, rdata_sample_s)
         begin
+            --handshake
             GNT_c <= '0';
             RDY_c <= '0';
-            en  <= '0';
             --write enables
             we_sample_mem <= '0';
             we_coeff_mem <= '0';
-            --read enables
-            re_delay <= '0';
-            --re_sample_mem <= '0';
             --counter enables
             en_cnt_coeff <= '0';
             en_cnt_section <= '0';
@@ -163,15 +177,23 @@ begin
                 when idle =>
                     if RQ_s = '1' then --data valid
                         GNT_c <= '1';
-                        next_state <= run; --go to write
+                        next_state <= new_data; --go to write
                     else
                         next_state <= idle;
                     end if;
+
+                when new_data => 
+                    we_sample_mem <= '1';
+                    wdata_sample <= signed(input);
+                    waddr_sample <= to_unsigned(0,waddr_sample'length);
+                    next_state <= write;
+                
+                when write =>
+                    next_state <= run;
                 
                 when run =>
                     en_cnt_coeff <= '1';
                     en_cnt_section <= '1';
-                    --re_sample_mem <= '1';
                     if cnt_coeff_s <= (2*c_s_order) then
                         raddr_coeff <= resize(cnt_coeff_s+(2*c_s_order+1)*cnt_section_s, raddr_coeff'length);
                         raddr_sample <= resize(cnt_sample+(c_s_order+1)*cnt_section_s, raddr_sample'length);
@@ -208,7 +230,6 @@ begin
                     
                     if (cnt_section_s > c_f_order/c_s_order-1) then
                         RDY_c <= '1';
-                        GNT_c <= '1';
                         next_state <= idle;
                     else
                         waddr_sample <= to_unsigned(3+3*(to_integer(cnt_section_s)-1), waddr_sample'length);
@@ -223,26 +244,35 @@ begin
         end process;
 
     p_mul: mul_pipe_c <= rdata_sample_s * rdata_coeff_s;
-    
-    p_en_acc: en_acc <= en_acc0 OR en_acc1;
 
-    p_en_result : en_result <= (en_cnt_section)AND NOT(en_acc OR en_cnt_coeff);
+    mul_test16 <=   mul_pipe_s(c_mul_w-4 downto (c_mul_w-4)-(c_data_w-1));
 
-    p_acc: acc <= resize(acc_s, c_acc_w+1) + resize(mul_pipe_s, c_acc_w+1);
+    mul <= -resize(mul_pipe_s, c_acc_w+1);
+    mul_neg <= mul(c_acc_w-1 downto 0);
+
+    --TODO: nepočítá to stejně jak matlab model, někde je zaokrouhlovací chyba
+    p_acc: process(cnt_coeff_s)
+    begin
+        case (cnt_coeff_s) is
+            when to_unsigned(3,cnt_coeff_s'length) => acc <= resize(acc_s, c_acc_w+1) + (-resize(mul_pipe_s, c_acc_w+1));
+            when to_unsigned(4,cnt_coeff_s'length) => acc <= resize(acc_s, c_acc_w+1) + (-resize(mul_pipe_s, c_acc_w+1));
+            when others => acc <= resize(acc_s, c_acc_w+1) + resize(mul_pipe_s, c_acc_w+1);
+        end case;
+    end process;
 
     p_acc_overflow: acc_c <=    ('0'&(c_acc_w-2 downto 0 => '1')) when ((acc(c_acc_w) = '0') AND (acc(c_acc_w-1) /= '0')) else
                                 ('1'&(c_acc_w-2 downto 0 => '0')) when ((acc(c_acc_w) = '1') AND (acc(c_acc_w-1) /= '1')) else
                                 acc(c_acc_w-1 downto 0);
-
+    
     p_new_delay: new_delay_c <= ('0'&(c_data_w-2 downto 0 => '1')) when ((acc(c_acc_w) = '0') AND (acc(c_acc_w-1 downto c_acc_w-6) /= 0)) else
-                                ('1'&(c_data_w-2 downto 0 => '0')) when ((acc(c_acc_w) = '1') AND (acc(c_acc_w-1 downto c_acc_w-6) /= 1)) else
+                                ('1'&(c_data_w-2 downto 0 => '0')) when ((acc(c_acc_w) = '1') AND (acc(c_acc_w-1 downto c_acc_w-6) /= "111111")) else
                                 acc(c_acc_w-6 downto (c_acc_w-6)-(c_data_w-1));
 
     p_sample_memory: process (clk, rst, we_sample_mem, wdata_sample, waddr_sample)
     --sample memory write
     begin
         if rst = '1' then
-            sample_mem <= (x"2000", x"0000", x"0000", x"0000", x"0000", x"0000", x"0000", x"0000", x"0000", x"0000", x"0000", x"0000", others => (others => '0'));
+            sample_mem <= (x"0000", x"0000", x"0000", x"0000", x"0000", x"0000", x"0000", x"0000", x"0000", x"0000", x"0000", x"0000", others => (others => '0'));
         elsif rising_edge(clk) then
             if we_sample_mem = '1' then
                 sample_mem(to_integer(waddr_sample)) <= wdata_sample; --write

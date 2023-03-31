@@ -9,7 +9,7 @@ package tuneFilter_pkg is
 constant c_data_w : integer := 16; --data width
 constant c_f_order : integer := 8; --filter order
 constant c_s_order : integer := 2; --section order
-constant c_len_data_frac : integer := 15; --coefficient fractional part length
+constant c_len_data_frac : integer := 13; --coefficient fractional part length
 constant c_len_coeff_frac : integer := 13; --coefficient fractional part length
 constant c_len_acc_frac : integer := 28; --accummulator fractional part length
 constant c_len_mul_frac : integer := 26; --accummulator fractional part length

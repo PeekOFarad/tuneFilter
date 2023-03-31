@@ -1,11 +1,3 @@
 Time resolution is 1 ps
-Note: test start
-Time: 10 ns  Iteration: 0  Process: /control_tb/stimulus  File: C:/Users/idont/Documents/School/Vysoka/GitHub/tuneFilter/tuneFilter.srcs/sim_1/new/control_tb.vhd
-Note: calculation start
-Time: 35 ns  Iteration: 1  Process: /control_tb/stimulus  File: C:/Users/idont/Documents/School/Vysoka/GitHub/tuneFilter/tuneFilter.srcs/sim_1/new/control_tb.vhd
-Note: calculation end
-Time: 445 ns  Iteration: 1  Process: /control_tb/stimulus  File: C:/Users/idont/Documents/School/Vysoka/GitHub/tuneFilter/tuneFilter.srcs/sim_1/new/control_tb.vhd
-Error: wrong output, expected: 3; Value read: 239
-Time: 445 ns  Iteration: 1  Process: /control_tb/stimulus  File: C:/Users/idont/Documents/School/Vysoka/GitHub/tuneFilter/tuneFilter.srcs/sim_1/new/control_tb.vhd
-Error: Test Failed!
-Time: 445 ns  Iteration: 1  Process: /control_tb/stimulus  File: C:/Users/idont/Documents/School/Vysoka/GitHub/tuneFilter/tuneFilter.srcs/sim_1/new/control_tb.vhd
+Note: **************TEST COMPLETED (PASSED)**************
+Time: 1580630 ns  Iteration: 1  Process: /filter_tb_full/completed_msg  File: C:/Users/idont/Documents/School/Vysoka/GitHub/tuneFilter/tuneFilter.srcs/sim_1/new/filter_tb_full_custom.vhd

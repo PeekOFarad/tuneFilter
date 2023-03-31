@@ -3,346 +3,367 @@
    <wave_state>
    </wave_state>
    <db_ref_list>
-      <db_ref path="control_tb_behav.wdb" id="1">
+      <db_ref path="filter_tb_full_behav.wdb" id="1">
          <top_modules>
-            <top_module name="control_tb" />
+            <top_module name="filter_tb_full" />
+            <top_module name="filter_tb_full_data" />
+            <top_module name="filter_tb_full_pkg" />
             <top_module name="tunefilter_pkg" />
          </top_modules>
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="406.670 ns"></ZoomStartTime>
-      <ZoomEndTime time="466.971 ns"></ZoomEndTime>
-      <Cursor1Time time="451.870 ns"></Cursor1Time>
+      <ZoomStartTime time="0.000000 us"></ZoomStartTime>
+      <ZoomEndTime time="5.810001 us"></ZoomEndTime>
+      <Cursor1Time time="5.400000 us"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="170"></NameColumnWidth>
+      <NameColumnWidth column_width="192"></NameColumnWidth>
       <ValueColumnWidth column_width="93"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="60" />
-   <wvobject fp_name="/control_tb/clk" type="logic">
+   <WVObjectSize size="85" />
+   <wvobject fp_name="/filter_tb_full/clk" type="logic">
       <obj_property name="ElementShortName">clk</obj_property>
       <obj_property name="ObjectShortName">clk</obj_property>
    </wvobject>
-   <wvobject fp_name="/control_tb/rst" type="logic">
-      <obj_property name="ElementShortName">rst</obj_property>
-      <obj_property name="ObjectShortName">rst</obj_property>
+   <wvobject fp_name="/filter_tb_full/clk_enable" type="logic">
+      <obj_property name="ElementShortName">clk_enable</obj_property>
+      <obj_property name="ObjectShortName">clk_enable</obj_property>
    </wvobject>
-   <wvobject fp_name="/control_tb/RQ" type="logic">
-      <obj_property name="ElementShortName">RQ</obj_property>
-      <obj_property name="ObjectShortName">RQ</obj_property>
+   <wvobject fp_name="/filter_tb_full/reset" type="logic">
+      <obj_property name="ElementShortName">reset</obj_property>
+      <obj_property name="ObjectShortName">reset</obj_property>
    </wvobject>
-   <wvobject fp_name="/control_tb/input" type="array">
-      <obj_property name="ElementShortName">input[15:0]</obj_property>
-      <obj_property name="ObjectShortName">input[15:0]</obj_property>
-      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   <wvobject fp_name="/filter_tb_full/filter_in" type="array">
+      <obj_property name="ElementShortName">filter_in[15:0]</obj_property>
+      <obj_property name="ObjectShortName">filter_in[15:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/control_tb/GNT" type="logic">
+   <wvobject fp_name="/filter_tb_full/filter_out" type="array">
+      <obj_property name="ElementShortName">filter_out[15:0]</obj_property>
+      <obj_property name="ObjectShortName">filter_out[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/filter_tb_full/tb_enb" type="logic">
+      <obj_property name="ElementShortName">tb_enb</obj_property>
+      <obj_property name="ObjectShortName">tb_enb</obj_property>
+   </wvobject>
+   <wvobject fp_name="/filter_tb_full/srcDone" type="logic">
+      <obj_property name="ElementShortName">srcDone</obj_property>
+      <obj_property name="ObjectShortName">srcDone</obj_property>
+   </wvobject>
+   <wvobject fp_name="/filter_tb_full/snkDone" type="logic">
+      <obj_property name="ElementShortName">snkDone</obj_property>
+      <obj_property name="ObjectShortName">snkDone</obj_property>
+   </wvobject>
+   <wvobject fp_name="/filter_tb_full/testFailure" type="logic">
+      <obj_property name="ElementShortName">testFailure</obj_property>
+      <obj_property name="ObjectShortName">testFailure</obj_property>
+   </wvobject>
+   <wvobject fp_name="/filter_tb_full/tbenb_dly" type="logic">
+      <obj_property name="ElementShortName">tbenb_dly</obj_property>
+      <obj_property name="ObjectShortName">tbenb_dly</obj_property>
+   </wvobject>
+   <wvobject fp_name="/filter_tb_full/counter" type="array">
+      <obj_property name="ElementShortName">counter[5:0]</obj_property>
+      <obj_property name="ObjectShortName">counter[5:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/filter_tb_full/phase_1" type="logic">
+      <obj_property name="ElementShortName">phase_1</obj_property>
+      <obj_property name="ObjectShortName">phase_1</obj_property>
+   </wvobject>
+   <wvobject fp_name="/filter_tb_full/rdEnb_phase_1" type="logic">
+      <obj_property name="ElementShortName">rdEnb_phase_1</obj_property>
+      <obj_property name="ObjectShortName">rdEnb_phase_1</obj_property>
+   </wvobject>
+   <wvobject fp_name="/filter_tb_full/filter_in_data_log_rdenb" type="logic">
+      <obj_property name="ElementShortName">filter_in_data_log_rdenb</obj_property>
+      <obj_property name="ObjectShortName">filter_in_data_log_rdenb</obj_property>
+   </wvobject>
+   <wvobject fp_name="/filter_tb_full/filter_in_data_log_addr" type="array">
+      <obj_property name="ElementShortName">filter_in_data_log_addr[11:0]</obj_property>
+      <obj_property name="ObjectShortName">filter_in_data_log_addr[11:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/filter_tb_full/filter_in_data_log_done" type="logic">
+      <obj_property name="ElementShortName">filter_in_data_log_done</obj_property>
+      <obj_property name="ObjectShortName">filter_in_data_log_done</obj_property>
+   </wvobject>
+   <wvobject fp_name="/filter_tb_full/holdData_filter_in" type="array">
+      <obj_property name="ElementShortName">holdData_filter_in[15:0]</obj_property>
+      <obj_property name="ObjectShortName">holdData_filter_in[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/filter_tb_full/filter_out_testFailure" type="logic">
+      <obj_property name="ElementShortName">filter_out_testFailure</obj_property>
+      <obj_property name="ObjectShortName">filter_out_testFailure</obj_property>
+   </wvobject>
+   <wvobject fp_name="/filter_tb_full/filter_out_errCnt" type="other">
+      <obj_property name="ElementShortName">filter_out_errCnt</obj_property>
+      <obj_property name="ObjectShortName">filter_out_errCnt</obj_property>
+   </wvobject>
+   <wvobject fp_name="/filter_tb_full/delayLine_out" type="logic">
+      <obj_property name="ElementShortName">delayLine_out</obj_property>
+      <obj_property name="ObjectShortName">delayLine_out</obj_property>
+   </wvobject>
+   <wvobject fp_name="/filter_tb_full/expected_ce_out" type="logic">
+      <obj_property name="ElementShortName">expected_ce_out</obj_property>
+      <obj_property name="ObjectShortName">expected_ce_out</obj_property>
+   </wvobject>
+   <wvobject fp_name="/filter_tb_full/int_delay_pipe" type="array">
+      <obj_property name="ElementShortName">int_delay_pipe[0:47]</obj_property>
+      <obj_property name="ObjectShortName">int_delay_pipe[0:47]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/filter_tb_full/filter_out_rdenb" type="logic">
+      <obj_property name="ElementShortName">filter_out_rdenb</obj_property>
+      <obj_property name="ObjectShortName">filter_out_rdenb</obj_property>
+   </wvobject>
+   <wvobject fp_name="/filter_tb_full/filter_out_addr" type="array">
+      <obj_property name="ElementShortName">filter_out_addr[11:0]</obj_property>
+      <obj_property name="ObjectShortName">filter_out_addr[11:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/filter_tb_full/filter_out_done" type="logic">
+      <obj_property name="ElementShortName">filter_out_done</obj_property>
+      <obj_property name="ObjectShortName">filter_out_done</obj_property>
+   </wvobject>
+   <wvobject fp_name="/filter_tb_full/filter_out_ref" type="array">
+      <obj_property name="ElementShortName">filter_out_ref[15:0]</obj_property>
+      <obj_property name="ObjectShortName">filter_out_ref[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/filter_tb_full/filter_out_dataTable" type="array">
+      <obj_property name="ElementShortName">filter_out_dataTable[15:0]</obj_property>
+      <obj_property name="ObjectShortName">filter_out_dataTable[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/filter_tb_full/filter_out_refTmp" type="array">
+      <obj_property name="ElementShortName">filter_out_refTmp[15:0]</obj_property>
+      <obj_property name="ObjectShortName">filter_out_refTmp[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/filter_tb_full/regout" type="array">
+      <obj_property name="ElementShortName">regout[15:0]</obj_property>
+      <obj_property name="ObjectShortName">regout[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/filter_tb_full/check1_Done" type="logic">
+      <obj_property name="ElementShortName">check1_Done</obj_property>
+      <obj_property name="ObjectShortName">check1_Done</obj_property>
+   </wvobject>
+   <wvobject fp_name="/filter_tb_full/GNT" type="logic">
       <obj_property name="ElementShortName">GNT</obj_property>
       <obj_property name="ObjectShortName">GNT</obj_property>
    </wvobject>
-   <wvobject fp_name="/control_tb/RDY" type="logic">
+   <wvobject fp_name="/filter_tb_full/RDY" type="logic">
       <obj_property name="ElementShortName">RDY</obj_property>
       <obj_property name="ObjectShortName">RDY</obj_property>
    </wvobject>
-   <wvobject fp_name="/control_tb/en" type="logic">
-      <obj_property name="ElementShortName">en</obj_property>
-      <obj_property name="ObjectShortName">en</obj_property>
+   <wvobject fp_name="/filter_tb_full/RQ" type="logic">
+      <obj_property name="ElementShortName">RQ</obj_property>
+      <obj_property name="ObjectShortName">RQ</obj_property>
    </wvobject>
-   <wvobject fp_name="/control_tb/output" type="array">
-      <obj_property name="ElementShortName">output[15:0]</obj_property>
-      <obj_property name="ObjectShortName">output[15:0]</obj_property>
-      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   <wvobject fp_name="/filter_tb_full/clk_high" type="other">
+      <obj_property name="ElementShortName">clk_high</obj_property>
+      <obj_property name="ObjectShortName">clk_high</obj_property>
    </wvobject>
-   <wvobject fp_name="/control_tb/stop_the_clock" type="other">
-      <obj_property name="ElementShortName">stop_the_clock</obj_property>
-      <obj_property name="ObjectShortName">stop_the_clock</obj_property>
+   <wvobject fp_name="/filter_tb_full/clk_low" type="other">
+      <obj_property name="ElementShortName">clk_low</obj_property>
+      <obj_property name="ObjectShortName">clk_low</obj_property>
    </wvobject>
-   <wvobject fp_name="/control_tb/clock_period" type="other">
-      <obj_property name="ElementShortName">clock_period</obj_property>
-      <obj_property name="ObjectShortName">clock_period</obj_property>
+   <wvobject fp_name="/filter_tb_full/clk_period" type="other">
+      <obj_property name="ElementShortName">clk_period</obj_property>
+      <obj_property name="ObjectShortName">clk_period</obj_property>
+   </wvobject>
+   <wvobject fp_name="/filter_tb_full/clk_hold" type="other">
+      <obj_property name="ElementShortName">clk_hold</obj_property>
+      <obj_property name="ObjectShortName">clk_hold</obj_property>
+   </wvobject>
+   <wvobject fp_name="/filter_tb_full/MAX_ERROR_COUNT" type="other">
+      <obj_property name="ElementShortName">MAX_ERROR_COUNT</obj_property>
+      <obj_property name="ObjectShortName">MAX_ERROR_COUNT</obj_property>
    </wvobject>
    <wvobject type="divider" fp_name="divider47">
+      <obj_property name="label">Filter internals</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
    </wvobject>
-   <wvobject fp_name="/control_tb/uut/clk" type="logic">
+   <wvobject fp_name="/filter_tb_full/u_filter/clk" type="logic">
       <obj_property name="ElementShortName">clk</obj_property>
       <obj_property name="ObjectShortName">clk</obj_property>
    </wvobject>
-   <wvobject fp_name="/control_tb/uut/rst" type="logic">
+   <wvobject fp_name="/filter_tb_full/u_filter/rst" type="logic">
       <obj_property name="ElementShortName">rst</obj_property>
       <obj_property name="ObjectShortName">rst</obj_property>
    </wvobject>
-   <wvobject fp_name="/control_tb/uut/RQ" type="logic">
+   <wvobject fp_name="/filter_tb_full/u_filter/RQ" type="logic">
       <obj_property name="ElementShortName">RQ</obj_property>
       <obj_property name="ObjectShortName">RQ</obj_property>
    </wvobject>
-   <wvobject fp_name="/control_tb/uut/input" type="array">
+   <wvobject fp_name="/filter_tb_full/u_filter/input" type="array">
       <obj_property name="ElementShortName">input[15:0]</obj_property>
       <obj_property name="ObjectShortName">input[15:0]</obj_property>
-      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
-   <wvobject fp_name="/control_tb/uut/en" type="logic">
-      <obj_property name="ElementShortName">en</obj_property>
-      <obj_property name="ObjectShortName">en</obj_property>
-   </wvobject>
-   <wvobject fp_name="/control_tb/uut/GNT" type="logic">
+   <wvobject fp_name="/filter_tb_full/u_filter/GNT" type="logic">
       <obj_property name="ElementShortName">GNT</obj_property>
       <obj_property name="ObjectShortName">GNT</obj_property>
    </wvobject>
-   <wvobject fp_name="/control_tb/uut/RDY" type="logic">
+   <wvobject fp_name="/filter_tb_full/u_filter/RDY" type="logic">
       <obj_property name="ElementShortName">RDY</obj_property>
       <obj_property name="ObjectShortName">RDY</obj_property>
    </wvobject>
-   <wvobject fp_name="/control_tb/uut/RQ_c" type="logic">
-      <obj_property name="ElementShortName">RQ_c</obj_property>
-      <obj_property name="ObjectShortName">RQ_c</obj_property>
-   </wvobject>
-   <wvobject fp_name="/control_tb/uut/RQ_s" type="logic">
-      <obj_property name="ElementShortName">RQ_s</obj_property>
-      <obj_property name="ObjectShortName">RQ_s</obj_property>
-   </wvobject>
-   <wvobject fp_name="/control_tb/uut/GNT_c" type="logic">
-      <obj_property name="ElementShortName">GNT_c</obj_property>
-      <obj_property name="ObjectShortName">GNT_c</obj_property>
-   </wvobject>
-   <wvobject fp_name="/control_tb/uut/RDY_c" type="logic">
-      <obj_property name="ElementShortName">RDY_c</obj_property>
-      <obj_property name="ObjectShortName">RDY_c</obj_property>
-   </wvobject>
-   <wvobject fp_name="/control_tb/uut/state" type="other">
+   <wvobject fp_name="/filter_tb_full/u_filter/state" type="other">
       <obj_property name="ElementShortName">state</obj_property>
       <obj_property name="ObjectShortName">state</obj_property>
    </wvobject>
-   <wvobject fp_name="/control_tb/uut/next_state" type="other">
+   <wvobject fp_name="/filter_tb_full/u_filter/next_state" type="other">
       <obj_property name="ElementShortName">next_state</obj_property>
       <obj_property name="ObjectShortName">next_state</obj_property>
    </wvobject>
-   <wvobject fp_name="/control_tb/uut/output" type="array">
+   <wvobject fp_name="/filter_tb_full/u_filter/output" type="array">
       <obj_property name="ElementShortName">output[15:0]</obj_property>
       <obj_property name="ObjectShortName">output[15:0]</obj_property>
-      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      <obj_property name="CustomSignalColor">#FF00FF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/filter_tb_full/u_filter/sample_mem" type="array">
+      <obj_property name="ElementShortName">sample_mem[0:11][15:0]</obj_property>
+      <obj_property name="ObjectShortName">sample_mem[0:11][15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/filter_tb_full/u_filter/coeff_mem" type="array">
+      <obj_property name="ElementShortName">coeff_mem[0:19][15:0]</obj_property>
+      <obj_property name="ObjectShortName">coeff_mem[0:19][15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/filter_tb_full/u_filter/wdata_sample" type="array">
+      <obj_property name="ElementShortName">wdata_sample[15:0]</obj_property>
+      <obj_property name="ObjectShortName">wdata_sample[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/filter_tb_full/u_filter/wdata_coeff" type="array">
+      <obj_property name="ElementShortName">wdata_coeff[15:0]</obj_property>
+      <obj_property name="ObjectShortName">wdata_coeff[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/filter_tb_full/u_filter/rdata_sample_s" type="array">
+      <obj_property name="ElementShortName">rdata_sample_s[15:0]</obj_property>
+      <obj_property name="ObjectShortName">rdata_sample_s[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/filter_tb_full/u_filter/rdata_coeff_s" type="array">
+      <obj_property name="ElementShortName">rdata_coeff_s[15:0]</obj_property>
+      <obj_property name="ObjectShortName">rdata_coeff_s[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/filter_tb_full/u_filter/waddr_sample" type="array">
+      <obj_property name="ElementShortName">waddr_sample[11:0]</obj_property>
+      <obj_property name="ObjectShortName">waddr_sample[11:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/filter_tb_full/u_filter/raddr_sample" type="array">
+      <obj_property name="ElementShortName">raddr_sample[11:0]</obj_property>
+      <obj_property name="ObjectShortName">raddr_sample[11:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/filter_tb_full/u_filter/waddr_coeff" type="array">
+      <obj_property name="ElementShortName">waddr_coeff[19:0]</obj_property>
+      <obj_property name="ObjectShortName">waddr_coeff[19:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/filter_tb_full/u_filter/raddr_coeff" type="array">
+      <obj_property name="ElementShortName">raddr_coeff[19:0]</obj_property>
+      <obj_property name="ObjectShortName">raddr_coeff[19:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/filter_tb_full/u_filter/we_sample_mem" type="logic">
+      <obj_property name="ElementShortName">we_sample_mem</obj_property>
+      <obj_property name="ObjectShortName">we_sample_mem</obj_property>
+   </wvobject>
+   <wvobject fp_name="/filter_tb_full/u_filter/we_coeff_mem" type="logic">
+      <obj_property name="ElementShortName">we_coeff_mem</obj_property>
+      <obj_property name="ObjectShortName">we_coeff_mem</obj_property>
+   </wvobject>
+   <wvobject fp_name="/filter_tb_full/u_filter/new_delay_c" type="array">
+      <obj_property name="ElementShortName">new_delay_c[15:0]</obj_property>
+      <obj_property name="ObjectShortName">new_delay_c[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/filter_tb_full/u_filter/new_delay_s" type="array">
+      <obj_property name="ElementShortName">new_delay_s[15:0]</obj_property>
+      <obj_property name="ObjectShortName">new_delay_s[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/filter_tb_full/u_filter/result" type="array">
+      <obj_property name="ElementShortName">result[15:0]</obj_property>
+      <obj_property name="ObjectShortName">result[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/filter_tb_full/u_filter/RQ_c" type="logic">
+      <obj_property name="ElementShortName">RQ_c</obj_property>
+      <obj_property name="ObjectShortName">RQ_c</obj_property>
+   </wvobject>
+   <wvobject fp_name="/filter_tb_full/u_filter/RQ_s" type="logic">
+      <obj_property name="ElementShortName">RQ_s</obj_property>
+      <obj_property name="ObjectShortName">RQ_s</obj_property>
+   </wvobject>
+   <wvobject fp_name="/filter_tb_full/u_filter/GNT_c" type="logic">
+      <obj_property name="ElementShortName">GNT_c</obj_property>
+      <obj_property name="ObjectShortName">GNT_c</obj_property>
+   </wvobject>
+   <wvobject fp_name="/filter_tb_full/u_filter/RDY_c" type="logic">
+      <obj_property name="ElementShortName">RDY_c</obj_property>
+      <obj_property name="ObjectShortName">RDY_c</obj_property>
+   </wvobject>
+   <wvobject fp_name="/filter_tb_full/u_filter/en_cnt_coeff" type="logic">
+      <obj_property name="ElementShortName">en_cnt_coeff</obj_property>
+      <obj_property name="ObjectShortName">en_cnt_coeff</obj_property>
+   </wvobject>
+   <wvobject fp_name="/filter_tb_full/u_filter/en_cnt_section" type="logic">
+      <obj_property name="ElementShortName">en_cnt_section</obj_property>
+      <obj_property name="ObjectShortName">en_cnt_section</obj_property>
+   </wvobject>
+   <wvobject fp_name="/filter_tb_full/u_filter/en_acc" type="logic">
+      <obj_property name="ElementShortName">en_acc</obj_property>
+      <obj_property name="ObjectShortName">en_acc</obj_property>
+   </wvobject>
+   <wvobject fp_name="/filter_tb_full/u_filter/cnt_coeff_c" type="array">
+      <obj_property name="ElementShortName">cnt_coeff_c[2:0]</obj_property>
+      <obj_property name="ObjectShortName">cnt_coeff_c[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/filter_tb_full/u_filter/cnt_coeff_s" type="array">
+      <obj_property name="ElementShortName">cnt_coeff_s[2:0]</obj_property>
+      <obj_property name="ObjectShortName">cnt_coeff_s[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/filter_tb_full/u_filter/cnt_sample" type="array">
+      <obj_property name="ElementShortName">cnt_sample[1:0]</obj_property>
+      <obj_property name="ObjectShortName">cnt_sample[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/filter_tb_full/u_filter/cnt_section_c" type="array">
+      <obj_property name="ElementShortName">cnt_section_c[2:0]</obj_property>
+      <obj_property name="ObjectShortName">cnt_section_c[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/filter_tb_full/u_filter/cnt_section_s" type="array">
+      <obj_property name="ElementShortName">cnt_section_s[2:0]</obj_property>
+      <obj_property name="ObjectShortName">cnt_section_s[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/filter_tb_full/u_filter/mul_pipe_c" type="array">
+      <obj_property name="ElementShortName">mul_pipe_c[31:0]</obj_property>
+      <obj_property name="ObjectShortName">mul_pipe_c[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/filter_tb_full/u_filter/mul_pipe_s" type="array">
+      <obj_property name="ElementShortName">mul_pipe_s[31:0]</obj_property>
+      <obj_property name="ObjectShortName">mul_pipe_s[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/filter_tb_full/u_filter/acc_c" type="array">
+      <obj_property name="ElementShortName">acc_c[33:0]</obj_property>
+      <obj_property name="ObjectShortName">acc_c[33:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/filter_tb_full/u_filter/acc_s" type="array">
+      <obj_property name="ElementShortName">acc_s[33:0]</obj_property>
+      <obj_property name="ObjectShortName">acc_s[33:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/filter_tb_full/u_filter/mul_neg" type="array">
+      <obj_property name="ElementShortName">mul_neg[33:0]</obj_property>
+      <obj_property name="ObjectShortName">mul_neg[33:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/filter_tb_full/u_filter/acc" type="array">
+      <obj_property name="ElementShortName">acc[34:0]</obj_property>
+      <obj_property name="ObjectShortName">acc[34:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/filter_tb_full/u_filter/mul" type="array">
+      <obj_property name="ElementShortName">mul[34:0]</obj_property>
+      <obj_property name="ObjectShortName">mul[34:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/filter_tb_full/u_filter/mul_test16" type="array">
+      <obj_property name="ElementShortName">mul_test16[15:0]</obj_property>
+      <obj_property name="ObjectShortName">mul_test16[15:0]</obj_property>
    </wvobject>
    <wvobject type="divider" fp_name="divider55">
       <obj_property name="label">Memory</obj_property>
       <obj_property name="DisplayName">label</obj_property>
    </wvobject>
-   <wvobject fp_name="/control_tb/uut/sample_mem" type="array">
-      <obj_property name="ElementShortName">sample_mem[0:11][15:0]</obj_property>
-      <obj_property name="ObjectShortName">sample_mem[0:11][15:0]</obj_property>
-      <obj_property name="CustomSignalColor">#800080</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
-      <obj_property name="radix_realType">SIGNEDFIXEDPOINTRADIX</obj_property>
-      <obj_property name="radix_fractionWidth">13</obj_property>
-      <obj_property name="radix_otherWidth">0</obj_property>
-   </wvobject>
-   <wvobject fp_name="/control_tb/uut/wdata_sample" type="array">
-      <obj_property name="ElementShortName">wdata_sample[15:0]</obj_property>
-      <obj_property name="ObjectShortName">wdata_sample[15:0]</obj_property>
-      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
-      <obj_property name="CustomSignalColor">#FF0080</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-   </wvobject>
-   <wvobject fp_name="/control_tb/uut/waddr_sample" type="array">
-      <obj_property name="ElementShortName">waddr_sample[11:0]</obj_property>
-      <obj_property name="ObjectShortName">waddr_sample[11:0]</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-      <obj_property name="CustomSignalColor">#FF0080</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-   </wvobject>
-   <wvobject fp_name="/control_tb/uut/rdata_sample_s" type="array">
-      <obj_property name="ElementShortName">rdata_sample_s[15:0]</obj_property>
-      <obj_property name="ObjectShortName">rdata_sample_s[15:0]</obj_property>
-      <obj_property name="Radix">REALRADIX</obj_property>
-      <obj_property name="radix_realType">UNSIGNEDFIXEDPOINTRADIX</obj_property>
-      <obj_property name="radix_fractionWidth">13</obj_property>
-      <obj_property name="radix_otherWidth">0</obj_property>
-   </wvobject>
-   <wvobject fp_name="/control_tb/uut/raddr_sample" type="array">
-      <obj_property name="ElementShortName">raddr_sample[11:0]</obj_property>
-      <obj_property name="ObjectShortName">raddr_sample[11:0]</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-      <obj_property name="CustomSignalColor">#FF00FF</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-   </wvobject>
-   <wvobject fp_name="/control_tb/uut/coeff_mem" type="array">
-      <obj_property name="ElementShortName">coeff_mem[0:19][15:0]</obj_property>
-      <obj_property name="ObjectShortName">coeff_mem[0:19][15:0]</obj_property>
-      <obj_property name="CustomSignalColor">#0000A0</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
-      <obj_property name="radix_realType">SIGNEDFIXEDPOINTRADIX</obj_property>
-      <obj_property name="radix_fractionWidth">13</obj_property>
-      <obj_property name="radix_otherWidth">0</obj_property>
-   </wvobject>
-   <wvobject fp_name="/control_tb/uut/wdata_coeff" type="array">
-      <obj_property name="ElementShortName">wdata_coeff[15:0]</obj_property>
-      <obj_property name="ObjectShortName">wdata_coeff[15:0]</obj_property>
-      <obj_property name="CustomSignalColor">#0000FF</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
-      <obj_property name="radix_realType">SIGNEDFIXEDPOINTRADIX</obj_property>
-      <obj_property name="radix_fractionWidth">13</obj_property>
-      <obj_property name="radix_otherWidth">0</obj_property>
-   </wvobject>
-   <wvobject fp_name="/control_tb/uut/waddr_coeff" type="array">
-      <obj_property name="ElementShortName">waddr_coeff[19:0]</obj_property>
-      <obj_property name="ObjectShortName">waddr_coeff[19:0]</obj_property>
-      <obj_property name="CustomSignalColor">#0000FF</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-   </wvobject>
-   <wvobject fp_name="/control_tb/uut/rdata_coeff" type="array">
-      <obj_property name="ElementShortName">rdata_coeff[15:0]</obj_property>
-      <obj_property name="ObjectShortName">rdata_coeff[15:0]</obj_property>
-      <obj_property name="CustomSignalColor">#008080</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-      <obj_property name="Radix">REALRADIX</obj_property>
-      <obj_property name="radix_realType">SIGNEDFIXEDPOINTRADIX</obj_property>
-      <obj_property name="radix_fractionWidth">13</obj_property>
-      <obj_property name="radix_otherWidth">0</obj_property>
-   </wvobject>
-   <wvobject fp_name="/control_tb/uut/raddr_coeff" type="array">
-      <obj_property name="ElementShortName">raddr_coeff[19:0]</obj_property>
-      <obj_property name="ObjectShortName">raddr_coeff[19:0]</obj_property>
-      <obj_property name="CustomSignalColor">#008080</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-   </wvobject>
-   <wvobject fp_name="/control_tb/uut/we_sample_mem" type="logic">
-      <obj_property name="ElementShortName">we_sample_mem</obj_property>
-      <obj_property name="ObjectShortName">we_sample_mem</obj_property>
-   </wvobject>
-   <wvobject fp_name="/control_tb/uut/we_coeff_mem" type="logic">
-      <obj_property name="ElementShortName">we_coeff_mem</obj_property>
-      <obj_property name="ObjectShortName">we_coeff_mem</obj_property>
-   </wvobject>
-   <wvobject fp_name="/control_tb/uut/new_delay_c" type="array">
-      <obj_property name="ElementShortName">new_delay_c[15:0]</obj_property>
-      <obj_property name="ObjectShortName">new_delay_c[15:0]</obj_property>
-      <obj_property name="Radix">REALRADIX</obj_property>
-      <obj_property name="radix_realType">SIGNEDFIXEDPOINTRADIX</obj_property>
-      <obj_property name="radix_fractionWidth">13</obj_property>
-      <obj_property name="radix_otherWidth">0</obj_property>
-   </wvobject>
-   <wvobject fp_name="/control_tb/uut/new_delay_s" type="array">
-      <obj_property name="ElementShortName">new_delay_s[15:0]</obj_property>
-      <obj_property name="ObjectShortName">new_delay_s[15:0]</obj_property>
-      <obj_property name="Radix">REALRADIX</obj_property>
-      <obj_property name="radix_realType">SIGNEDFIXEDPOINTRADIX</obj_property>
-      <obj_property name="radix_fractionWidth">13</obj_property>
-      <obj_property name="radix_otherWidth">0</obj_property>
-   </wvobject>
-   <wvobject fp_name="/control_tb/uut/result" type="array">
-      <obj_property name="ElementShortName">result[15:0]</obj_property>
-      <obj_property name="ObjectShortName">result[15:0]</obj_property>
-      <obj_property name="Radix">REALRADIX</obj_property>
-      <obj_property name="radix_realType">SIGNEDFIXEDPOINTRADIX</obj_property>
-      <obj_property name="radix_fractionWidth">13</obj_property>
-      <obj_property name="radix_otherWidth">0</obj_property>
-   </wvobject>
-   <wvobject fp_name="/control_tb/uut/en_cnt_coeff" type="logic">
-      <obj_property name="ElementShortName">en_cnt_coeff</obj_property>
-      <obj_property name="ObjectShortName">en_cnt_coeff</obj_property>
-   </wvobject>
-   <wvobject fp_name="/control_tb/uut/en_cnt_section" type="logic">
-      <obj_property name="ElementShortName">en_cnt_section</obj_property>
-      <obj_property name="ObjectShortName">en_cnt_section</obj_property>
-   </wvobject>
-   <wvobject fp_name="/control_tb/uut/cnt_coeff_c" type="array">
-      <obj_property name="ElementShortName">cnt_coeff_c[2:0]</obj_property>
-      <obj_property name="ObjectShortName">cnt_coeff_c[2:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/control_tb/uut/cnt_coeff_s" type="array">
-      <obj_property name="ElementShortName">cnt_coeff_s[2:0]</obj_property>
-      <obj_property name="ObjectShortName">cnt_coeff_s[2:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/control_tb/uut/cnt_sample" type="array">
-      <obj_property name="ElementShortName">cnt_sample[1:0]</obj_property>
-      <obj_property name="ObjectShortName">cnt_sample[1:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/control_tb/uut/cnt_section_c" type="array">
-      <obj_property name="ElementShortName">cnt_section_c[2:0]</obj_property>
-      <obj_property name="ObjectShortName">cnt_section_c[2:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/control_tb/uut/cnt_section_s" type="array">
-      <obj_property name="ElementShortName">cnt_section_s[2:0]</obj_property>
-      <obj_property name="ObjectShortName">cnt_section_s[2:0]</obj_property>
-   </wvobject>
    <wvobject type="divider" fp_name="divider54">
       <obj_property name="label">Arithmetics</obj_property>
       <obj_property name="DisplayName">label</obj_property>
-   </wvobject>
-   <wvobject fp_name="/control_tb/uut/mul_pipe_c" type="array">
-      <obj_property name="ElementShortName">mul_pipe_c[31:0]</obj_property>
-      <obj_property name="ObjectShortName">mul_pipe_c[31:0]</obj_property>
-      <obj_property name="Radix">REALRADIX</obj_property>
-      <obj_property name="radix_realType">SIGNEDFIXEDPOINTRADIX</obj_property>
-      <obj_property name="radix_fractionWidth">26</obj_property>
-      <obj_property name="radix_otherWidth">0</obj_property>
-   </wvobject>
-   <wvobject fp_name="/control_tb/uut/mul_pipe_s" type="array">
-      <obj_property name="ElementShortName">mul_pipe_s[31:0]</obj_property>
-      <obj_property name="ObjectShortName">mul_pipe_s[31:0]</obj_property>
-      <obj_property name="Radix">REALRADIX</obj_property>
-      <obj_property name="radix_realType">SIGNEDFIXEDPOINTRADIX</obj_property>
-      <obj_property name="radix_fractionWidth">26</obj_property>
-      <obj_property name="radix_otherWidth">0</obj_property>
-   </wvobject>
-   <wvobject fp_name="/control_tb/uut/acc_s" type="array">
-      <obj_property name="ElementShortName">acc_s[33:0]</obj_property>
-      <obj_property name="ObjectShortName">acc_s[33:0]</obj_property>
-      <obj_property name="Radix">REALRADIX</obj_property>
-      <obj_property name="radix_realType">SIGNEDFIXEDPOINTRADIX</obj_property>
-      <obj_property name="radix_fractionWidth">26</obj_property>
-      <obj_property name="radix_otherWidth">0</obj_property>
-   </wvobject>
-   <wvobject fp_name="/control_tb/uut/acc" type="array">
-      <obj_property name="ElementShortName">acc[34:0]</obj_property>
-      <obj_property name="ObjectShortName">acc[34:0]</obj_property>
-      <obj_property name="Radix">REALRADIX</obj_property>
-      <obj_property name="radix_realType">SIGNEDFIXEDPOINTRADIX</obj_property>
-      <obj_property name="radix_fractionWidth">26</obj_property>
-      <obj_property name="radix_otherWidth">0</obj_property>
-   </wvobject>
-   <wvobject fp_name="/control_tb/uut/acc_c" type="array">
-      <obj_property name="ElementShortName">acc_c[33:0]</obj_property>
-      <obj_property name="ObjectShortName">acc_c[33:0]</obj_property>
-      <obj_property name="Radix">REALRADIX</obj_property>
-      <obj_property name="radix_realType">SIGNEDFIXEDPOINTRADIX</obj_property>
-      <obj_property name="radix_fractionWidth">26</obj_property>
-      <obj_property name="radix_otherWidth">0</obj_property>
-   </wvobject>
-   <wvobject fp_name="/control_tb/uut/rdata_coeff_s" type="array">
-      <obj_property name="ElementShortName">rdata_coeff_s[15:0]</obj_property>
-      <obj_property name="ObjectShortName">rdata_coeff_s[15:0]</obj_property>
-      <obj_property name="Radix">REALRADIX</obj_property>
-      <obj_property name="radix_realType">UNSIGNEDFIXEDPOINTRADIX</obj_property>
-      <obj_property name="radix_fractionWidth">13</obj_property>
-      <obj_property name="radix_otherWidth">0</obj_property>
-   </wvobject>
-   <wvobject fp_name="/control_tb/uut/rdata_sample_s" type="array">
-      <obj_property name="ElementShortName">rdata_sample_s[15:0]</obj_property>
-      <obj_property name="ObjectShortName">rdata_sample_s[15:0]</obj_property>
-      <obj_property name="Radix">REALRADIX</obj_property>
-      <obj_property name="radix_realType">UNSIGNEDFIXEDPOINTRADIX</obj_property>
-      <obj_property name="radix_fractionWidth">13</obj_property>
-      <obj_property name="radix_otherWidth">0</obj_property>
-   </wvobject>
-   <wvobject fp_name="/control_tb/uut/en_acc" type="logic">
-      <obj_property name="ElementShortName">en_acc</obj_property>
-      <obj_property name="ObjectShortName">en_acc</obj_property>
-   </wvobject>
-   <wvobject fp_name="/control_tb/uut/en_acc0" type="logic">
-      <obj_property name="ElementShortName">en_acc0</obj_property>
-      <obj_property name="ObjectShortName">en_acc0</obj_property>
-   </wvobject>
-   <wvobject fp_name="/control_tb/uut/en_acc1" type="logic">
-      <obj_property name="ElementShortName">en_acc1</obj_property>
-      <obj_property name="ObjectShortName">en_acc1</obj_property>
-   </wvobject>
-   <wvobject fp_name="/control_tb/uut/en_result" type="logic">
-      <obj_property name="ElementShortName">en_result</obj_property>
-      <obj_property name="ObjectShortName">en_result</obj_property>
    </wvobject>
 </wave_config>

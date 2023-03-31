@@ -11,13 +11,13 @@ architecture bench of control_tb is
   component control
       Port (  clk, rst, RQ    : in STD_LOGIC;
               input           : in std_logic_vector(c_data_w-1 downto 0);
-              GNT, RDY, en    : out STD_LOGIC;
+              GNT, RDY        : out STD_LOGIC;
               output          : out std_logic_vector(c_data_w-1 downto 0));
   end component;
 
   signal clk, rst, RQ: STD_LOGIC;
   signal input: std_logic_vector(c_data_w-1 downto 0);
-  signal GNT, RDY, en: STD_LOGIC;
+  signal GNT, RDY: STD_LOGIC;
   signal output: std_logic_vector(c_data_w-1 downto 0);
 
   constant clock_period: time := 10 ns;
@@ -31,7 +31,6 @@ begin
                           input  => input,
                           GNT    => GNT,
                           RDY    => RDY,
-                          en     => en,
                           output => output );
 
   stimulus: process
@@ -46,14 +45,21 @@ begin
 
     -- Put test bench stimulus code here
     report "test start";
-    input <= std_logic_vector(to_signed(35, c_data_w));
-    RQ <= '1';
-    wait on GNT;
-    report "calculation start";
-    RQ <= '0';
-    wait on GNT;
-    wait on GNT until GNT = '0';
-    report "calculation end";
+    for i in 0 to 60 loop
+      if  i < 1 then
+        input <= x"2000";
+      else 
+        input <= x"0000";
+      end if;
+      RQ <= '1';
+      wait on GNT;
+      report ("calculation start "& integer'image(i));
+      RQ <= '0';
+      wait on GNT;
+      wait on RDY;
+      report ("calculation "& integer'image(i) &" end, result: "& real'image(real(to_integer(signed(output)))));
+    end loop;
+    
     assert (output = std_logic_vector(to_signed(3,c_data_w)))
       report ("wrong output, expected: " & integer'image(3) & "; Value read: " & integer'image(to_integer(signed(output))))
       severity error;
@@ -62,7 +68,8 @@ begin
     else
       report "Test Failed!" severity error;
     end if;
-    ------------- 
+    -------------
+    wait for clock_period*5; 
     stop_the_clock <= true;
     wait;
   end process;
